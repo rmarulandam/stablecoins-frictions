@@ -1,0 +1,207 @@
+\documentclass[spanish,11pt]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[spanish,es-nodecimaldot]{babel}
+\usepackage[top=2.1cm,bottom=2.1cm,left=2.4cm,right=2.4cm]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{microtype}
+\usepackage{parskip}
+\usepackage{xcolor}
+\usepackage{hyperref}
+
+\setcounter{secnumdepth}{5}
+\setlength{\emergencystretch}{3em}
+
+\hypersetup{
+  pdftitle={Fricciones en el comercio internacional y monedas estables: reseña crítica del Capítulo 2 del informe de la OMC},
+  pdfauthor={Andrés Arias, Catalina Jaramillo y Rafael Marulanda},
+  pdflang={es},
+  colorlinks=true,
+  linkcolor=blue,
+  citecolor=blue,
+  urlcolor=blue
+}
+
+\title{Fricciones en el comercio internacional y monedas estables:\\
+\large Una reseña crítica}
+\author{Andrés Arias, Catalina Jaramillo y Rafael Marulanda\\
+  {\small Pontificia Universidad Javeriana}}
+\date{26 de septiembre de 2026}
+
+\begin{document}
+\maketitle
+
+\section{Introducción}\label{introduccion}
+
+En el segundo capítulo del informe \emph{Stablecoins and world trade: Emerging role, opportunities and challenges} (2026), titulado 
+\emph{``Frictions in international trade and the potential use and limitations of stablecoins''}, la Organización Mundial del 
+Comercio (OMC) examina cómo los criptoactivos anclados a monedas fiduciarias inciden sobre los cuellos de botella de los pagos
+ y el financiamiento comercial transfronterizo. El documento contrasta la velocidad técnica de liquidación sobre los 
+ registros distribuidos (\emph{distributed ledger technology}, DLT) y la arquitectura institucional del crédito 
+ comercial internacional.
+
+Los pagos transfronterizos convencionales son lentos, costosos, opacos y fragmentados, en particular para las micro, pequeñas 
+y medianas empresas (MIPYMES) y para las economías en desarrollo. Frente a ello, las monedas 
+estables (\emph{stablecoins}) respaldadas por dinero fiduciario (con hegemonía del dólar estadounidense a 
+través de USDT y USDC) se proyectan como una alternativa de liquidación continua (24/7/365) y con menor intermediación.
+
+Este capítulo muestra una distinción entre la función de \emph{pago y liquidación} y las funciones de 
+\emph{financiamiento, provisión de liquidez y mitigación de riesgo comercial}. La OMC argumenta que, si bien las monedas 
+estables reducen la latencia y los costos de transferencia en determinados corredores, carecen de los atributos intrínsecos 
+del crédito bancario tradicional, no suministran capital de trabajo y no sustituyen las garantías documentarias consagradas 
+en el derecho mercantil internacional. 
+
+Por consiguiente, el capítulo concluye que las monedas estables no constituyen un sustituto autosuficiente de la infraestructura 
+bancaria o de los instrumentos de crédito comercial, sino un riel de pago potencialmente complementario cuyo 
+beneficio neto dependerá de la integración con pasarelas de conversión cambiaria (\emph{on/off-ramps}), de la interoperabilidad 
+técnica y de la armonización de los marcos regulatorios globales. Esta delimitación conceptual entre los canales de pago y 
+creación crediticia constituye el eje de la presente reseña.
+
+\section{Contexto histórico}\label{contexto-historico}
+
+El comercio transfronterizo de mercancías y servicios ha descansado históricamente sobre la banca de corresponsalía. Esta 
+opera mediante una jerarquía de cuentas espejo (\emph{nostro/vostro}) que vinculan a bancos locales con intermediarios 
+globales para procesar compensaciones interbancarias y conciliar divisas. No obstante, dicho modelo fue concebido 
+bajo sistemas de compensación por lotes (\emph{batch processing}) delimitados por horarios bancarios locales, 
+días hábiles y distintos husos horarios, lo que genera demoras de entre dos y cinco días hábiles ($T+2$ a $T+5$) 
+para el desembolso final de los fondos (FSB, 2020).
+
+Tras la crisis financiera global de 2008, este entramado institucional experimentó presiones regulatorias. El endurecimiento 
+de las directrices contra el lavado de activos y financiamiento del terrorismo (AML/CFT) promovidas por el Grupo de Acción 
+Financiera Internacional (GAFI/FATF), aunado a los estándares de capital y liquidez de Basilea III, incrementó drásticamente 
+los costos de cumplimiento para los grandes bancos corresponsales. Como resultado, las entidades financieras 
+internacionales implementaron políticas sistemáticas de repliegue de riesgos (\emph{de-risking}), y se cerraron corresponsales
+en múltiples jurisdicciones (CPMI, 2020). Este repliegue profundizó la concentración del mercado de pagos transfronterizos, 
+redujo la competencia y encareció las transferencias comerciales para las economías con menor volumen o con 
+sistemas financieros menos profundos.
+
+En paralelo, el financiamiento del comercio exterior se ha consolidado como un componente indispensable del comercio global. 
+De acuerdo con el Banco de Pagos Internacionales (BIS, 2014), el financiamiento comercial intermediado por bancos 
+respalda entre 6,5 y 8 billones de dólares anuales, a los que se suman de 2,5 a 3 billones de dólares en créditos 
+comerciales entre empresas (\emph{supplier/buyer credit}), totalizando entre 9 y 11 billones de dólares 
+frente a los 19 billones de dólares del comercio mundial de mercancías. 
+
+Sin embargo, el acceso a este financiamiento es muy desigual. Diversos estudios empíricos de la OMC y la Corporación 
+Financiera Internacional (IFC) en África Occidental (2022), la cuenca del Mekong (2023) y Centroamérica (2025) evidencian 
+que solo entre el 2\% y el 20\% de los flujos comerciales en dichos mercados cuenta con soporte de financiamiento bancario formal. 
+En países como México, apenas la cuarta parte de las empresas importadoras y exportadoras tiene acceso al crédito bancario general,
+quedando el grueso del aparato productivo obligado al autofinanciamiento, al pago anticipado en efectivo (\emph{cash-in-advance}) 
+o a ventas en cuenta abierta (\emph{open account}) con asunción total del riesgo comercial (Beck et al., 2025). Adicionalmente, 
+el examen documental de los créditos documentarios tradicionales (como las cartas de crédito regidas por las normas UCP 600 de 
+la Cámara de Comercio Internacional) presenta tasas de rechazo por discrepancias formales en primera presentación de entre 
+el 65\% y el 80\% (ICC, 2022).
+
+Es en este contexto de fricciones operativas acumuladas y creciente desatención financiera donde 
+irrumpen las monedas estables respaldadas por reservas fiduciarias como una innovación de mercado orientada a 
+proveer canales de liquidez sobre cadenas de bloques.
+
+\section{Argumentos a favor}\label{argumentos-a-favor}
+
+En primer término, destaca la \emph{velocidad y disponibilidad operativa de la liquidación}. Frente a la latencia 
+de días inherente a las redes de corresponsalía, las cadenas de bloques ofrecen liquidación casi atómica 
+y disponibilidad ininterrumpida (24/7/365). Esta aceleración reduce el capital de trabajo que las empresas deben mantener 
+ocioso durante el periodo de tránsito interbancario y aminora la exposición al riesgo de tipo de cambio mientras se perfecciona el 
+pago. La vinculación de gigantes de pagos como Visa para liquidar balances con USDC directamente en redes públicas de registro 
+distribuido confirma la viabilidad de omitir tramos completos de la corresponsalía convencional (Visa, 2025).
+
+En segundo lugar, se identifica una \emph{desintermediación efectiva con reducción de costos} en determinados 
+corredores de pago. Al realizarse la transferencia directamente de billetera a billetera (\emph{peer-to-peer}), 
+se eliminan las capas sucesivas de comisiones de intermediarios y los costos de conciliación bancaria. 
+Se cita evidencia empírica que indica que transferir 500 dólares mediante monedas estables cuesta entre 5 y 15 dólares (1\% a 3\%), 
+frente a los 20 o 30 dólares (4\% a 6\%) canalizados por la banca tradicional (Adams et al., 2023). En el ámbito de las 
+remesas y microtransacciones comerciales entre Estados Unidos y México, los costos efectivos por rieles de monedas estables
+han descendido a menos del 1\%, contrastando con el promedio tradicional superior al 6\%, lo que ha permitido a estos 
+criptoactivos captar entre el 5\% y el 10\% del flujo total en ese corredor (Dolev, 2025).
+
+En tercer lugar, se resalta la \emph{programabilidad contractual}. A través de contratos inteligentes (\emph{smart contracts}), 
+las monedas estables permiten parametrizar pagos condicionados a eventos verificables en la cadena de suministro 
+sin requerir la intervención discrecional de un oficial bancario. Por ejemplo, los fondos pueden quedar bloqueados en una 
+cuenta de custodia algorítmica (\emph{escrow}) y liberarse automáticamente cuando dispositivos conectados al 
+Internet de las Cosas (IoT) constaten que un contenedor ingresó al puerto de destino. Esta capacidad disminuye la asimetría 
+de información y el riesgo de pago para operadores con escaso historial crediticio.
+
+En cuarto lugar, el informe aporta datos cuantitativos relevantes sobre el \emph{cambio estructural en el uso de estos activos}. 
+Aunque el volumen global de pagos con monedas estables (estimado en 390 mil millones de dólares en 2025, o cerca del 3\% del 
+total transfronterizo mundial) continúa siendo menor frente a los agregados bancarios, el segmento de pagos interempresariales (B2B) 
+creció un 733\% entre 2024 y 2025. También, grandes corporaciones y entidades financieras multinacionales han comenzado a explorar 
+su adopción para la optimización de su tesorería (Deutsche Bank, 2026).
+
+Por último, se formula una diferenciación conceptual entre el comercio de bienes y el comercio de servicios: mientras el intercambio 
+de bienes tangibles requiere un complejo andamiaje de garantías prendarias sobre la carga física, el comercio transfronterizo de 
+servicios prestados digitalmente (software, consultoría, contenidos digitales, servicios profesionales independientes) carece de 
+una mercancía física que pignorar y depende de forma exclusiva de la eficiencia de los canales de pago. Para este último sector, 
+las monedas estables representan una mejora inmediata y de fácil adopción.
+
+\section{Argumentos en contra}\label{argumentos-en-contra}
+
+Pese a los méritos descritos, la OMC expone las limitaciones estructurales y los riesgos que restringen la 
+generalización de las monedas estables en el comercio global:
+
+La primera objeción económica radica en el \emph{cuello de botella de las pasarelas fiduciarias (on/off-ramps)}. Si bien el costo transaccional nativo sobre la cadena de bloques es reducido, las empresas de la economía real operan y tributan en moneda fiduciaria de curso legal. El estudio empírico de Di Iorio et al. (2026), citado en el texto, demuestra que el costo total de operar con monedas estables oscila entre el 0,3\% y casi el 9\% del monto enviado, explicándose dicha variabilidad de manera casi exclusiva por los diferenciales cambiarios (\emph{spreads}) y las tarifas cobradas por las pasarelas al convertir dinero bancario a moneda estable y viceversa. En mercados de divisas poco líquidos o fuertemente restringidos, el costo final puede incluso superar al de los canales tradicionales.
+
+La segunda limitación concierne a la \emph{neutralidad regulatoria sobre el cumplimiento}. Existe la concepción errónea de que las monedas estables eximen de las rigideces asociadas a la prevención de delitos financieros. El capítulo aclara que las normas de debida diligencia de clientes (KYC), el régimen de sanciones y la \emph{Travel Rule} del GAFI aplican íntegramente a las entidades que interactúan con criptoactivos (FSB, 2023). Por tanto, la verificación de identidad, el monitoreo continuo de transacciones mediante análisis de datos en cadena y la notificación regulatoria continúan generando costos administrativos y demoras que no desaparecen con la sustitución del protocolo de comunicación.
+
+La tercera y más profunda objeción es la \emph{incapacidad ontológica de las monedas estables para proveer financiamiento comercial y absorción de riesgo}. Como sintetiza con claridad la Tabla 2 del informe, las monedas estables son activos de liquidación monetaria y no intermediarios de crédito. En el comercio exterior, los exportadores e importadores demandan crédito de pre-embarque para financiar insumos y producción, o crédito de post-embarque para conceder plazos de pago a sus compradores. Las monedas estables no crean crédito ni expanden balances; exigen el prefondeo íntegro de la operación (equivalente a un esquema de \emph{cash-in-advance}), lo que resulta inviable para firmas que dependen del apalancamiento comercial.
+
+Asimismo, en el plano de la mitigación de riesgos, una carta de crédito bancaria governed por las normas UCP 600 de la CCI confiere un compromiso de pago legalmente exigible, irrevocable e independiente, respaldado por la solvencia de un banco emisor y sustentado en títulos valores transferibles que representan la propiedad física de las mercancías (como el conocimiento de embarque o \emph{bill of lading}). Un contrato inteligente sobre blockchain carece por sí mismo de jurisdicción para resolver disputas complejas sobre mercancías defectuosas, no puede revertir transacciones erróneas o fraudulentas debido a la inmutabilidad de la cadena, y enfrenta un vacío legal relativo al reconocimiento del colateral si el ordenamiento jurídico local no asimila los registros digitales a títulos de crédito plenos.
+
+Finalmente, el capítulo advierte sobre las repercusiones macroeconómicas en las economías emergentes. La adopción masiva de monedas estables denominadas en moneda extranjera (particularmente en dólares) acelera los procesos de \emph{dolarización digital} o sustitución monetaria. Esto debilita la soberanía monetaria de los bancos centrales de países en desarrollo, inutiliza los canales de transmisión de la tasa de interés de política monetaria y exacerba la vulnerabilidad macrofinanciera al facilitar fugas de capital inmediatas ante choques externos (FSB, 2024; FMI, 2024).
+
+\section{Conclusión}\label{conclusion}
+
+El Capítulo 2 del informe de la OMC ofrece una contribución fundamental a la literatura sobre economía digital y comercio internacional al desarticular la premisa tecno-determinista que postula a las monedas estables como un sustituto automático de la banca internacional. Su valor reside en demostrar que la eficiencia computacional de una red de pagos no equivale a la suficiencia institucional de un sistema de financiamiento.
+
+La evidencia analizada permite concluir que las monedas estables actúan primordialmente como un \emph{riel de liquidación monetaria de alta velocidad}, sumamente eficaz para transacciones transfronterizas directas, flujos de remesas, servicios digitales y optimización de tesorería corporativa. No obstante, en el núcleo del comercio de bienes físicos —donde convergen el desfase temporal del transporte, la asimetría de información y la necesidad de capital de trabajo—, los instrumentos tradicionales de crédito y mitigación de riesgo siguen siendo insustituibles en el corto y mediano plazo.
+
+Para que las eficiencias técnicas de las monedas estables puedan integrarse plenamente en el financiamiento comercial, se requiere superar la brecha jurídica entre los registros descentralizados y el derecho mercantil. Avances normativos como la Ley de Documentos Comerciales Electrónicos del Reino Unido (\emph{Electronic Trade Documents Act}) de 2023 y la adopción de la Ley Modelo sobre Documentos Transmisibles Electrónicos de la CNUDMI (MLETR) son condiciones habilitantes indispensables para otorgar validez probatoria y eficacia prendaria a los títulos digitales en transacciones sobre contratos inteligentes.
+
+Desde la perspectiva de la investigación económica sobre Bitcoin, criptoactivos y teoría monetaria, este capítulo abre vetas analíticas cruciales: en primer lugar, ilustra cómo las monedas estables operan bajo la lógica de dinero base privado respaldado ($M_0$ tokenizado), carente de la elasticidad crediticia que caracteriza al dinero bancario fraccionario ($M_2$); en segundo lugar, resalta el conflicto entre la búsqueda microeconómica de eficiencia transaccional por parte de los exportadores y el dilema macroeconómico de soberanía monetaria y fuga de capitales que enfrentan las economías del sur global. Evaluar una innovación de pagos exige sopesar no solo la velocidad del algoritmo, sino la solidez de las instituciones y el equilibrio de los balances que lo sustentan.
+
+\section{Referencias}\label{referencias}
+
+\begin{itemize}
+  \setlength{\itemsep}{0pt}
+  \item Adams, C., Arruda, N., Bassiouney, A., Chapman, J., Eichengreen, B. y Rodgers, D. (2023). \emph{Cross-Border Payments with Stablecoins: Potential Benefits and Vulnerabilities}. Financial Stability Board / CEPR Discussion Paper.
+
+  \item Bank for International Settlements [BIS]. (2014). \emph{Trade finance: developments and issues}. CGFS Papers, No. 50. Basel: Committee on the Global Financial System.
+
+  \item Bank for International Settlements [BIS]. (2023). \emph{The crypto ecosystem: key elements and risks}. BIS Papers, No. 136. Basel: Bank for International Settlements.
+
+  \item Beck, T., Auboin, M. y Marchetti, J. (2025). \emph{Trade Finance Gaps in Emerging Markets: Survey Evidence and Policy Pathways}. World Trade Organization / IFC Working Paper Series.
+
+  \item Committee on Payments and Market Infrastructures [CPMI]. (2020). \emph{Enhancing cross-border payments: building blocks of a global roadmap}. Basel: Bank for International Settlements.
+
+  \item Deutsche Bank. (2026). \emph{Corporate Treasury in the Digital Era: Stablecoins, Tokenised Deposits and Liquidity Management}. Frankfurt: Deutsche Bank Research.
+
+  \item Di Iorio, A., Ferrara, L. y Rossi, M. (2026). \emph{Friction in the Rails: Estimating the Real Cost of Fiat On- and Off-Ramps in Cross-Border Stablecoin Settlements}. Journal of International Economics and Financial Markets (en prensa).
+
+  \item Dolev, S. (2025). \emph{Stablecoins in Cross-Border Remittances: The Case of the US-Mexico Corridor}. FinTech Economic Letters, 14(2), 88--104.
+
+  \item Financial Stability Board [FSB]. (2020). \emph{Enhancing Cross-Border Payments: Stage 3 Roadmap}. Basel: Financial Stability Board.
+
+  \item Financial Stability Board [FSB]. (2023). \emph{High-level Recommendations for the Regulation, Supervision and Oversight of Global Stablecoin Arrangements}. Basel: Financial Stability Board.
+
+  \item Financial Stability Board [FSB]. (2024). \emph{The Financial Stability Implications of Digital Dollarisation and Foreign Stablecoins in Emerging Markets and Developing Economies}. Basel: Financial Stability Board.
+
+  \item International Chamber of Commerce [ICC]. (2022). \emph{Global Survey on Trade Finance: Securing Sustainable Trade}. Paris: ICC Banking Commission.
+
+  \item International Monetary Fund [IMF]. (2023). \emph{Elements of Effective Policies for Crypto Assets}. IMF Policy Paper. Washington, D.C.: International Monetary Fund.
+
+  \item International Monetary Fund [IMF]. (2024). \emph{Cross-Border Impacts of Digital Money: Capital Flow Management and Currency Substitution Risks}. Washington, D.C.: International Monetary Fund.
+
+  \item United Nations Commission on International Trade Law [UNCITRAL]. (2017). \emph{UNCITRAL Model Law on Electronic Transferable Records (MLETR)}. Vienna: United Nations.
+
+  \item Visa. (2025). \emph{Expanding Stablecoin Settlement Capabilities for Financial Institutions}. Foster City, CA: Visa Global Treasury and Crypto Solutions.
+
+  \item World Trade Organization [WTO]. (2026). \emph{Stablecoins and world trade: Emerging role, opportunities and challenges}. Geneva: WTO Publications.
+
+  \item World Trade Organization [WTO] e International Finance Corporation [IFC]. (2022). \emph{Trade Finance in West Africa: Gaps, Frictions and Constraints}. Geneva and Washington, D.C.: WTO/IFC.
+
+  \item World Trade Organization [WTO] e International Finance Corporation [IFC]. (2023). \emph{Supply Chain and Trade Financing in the Mekong Region}. Geneva and Washington, D.C.: WTO/IFC.
+
+  \item World Trade Organization [WTO] e International Finance Corporation [IFC]. (2025). \emph{Trade and Working Capital Finance in Central America and the Caribbean}. Geneva and Washington, D.C.: WTO/IFC.
+\end{itemize}
+
+\end{document}
