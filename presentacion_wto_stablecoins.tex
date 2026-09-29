@@ -1,0 +1,472 @@
+\documentclass[aspectratio=169,10pt]{beamer}
+
+% --- PAQUETES BÁSICOS Y TIPOGRAFÍA ---
+\usepackage[spanish,es-noquoting,es-nodecimaldot]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{colortbl}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usetikzlibrary{arrows.meta,positioning,calc,shapes.geometric,fit,backgrounds,decorations.pathreplacing}
+
+% --- PALETA DE COLORES SEMINARIO GRADUADOS (ALTO CONTRASTE) ---
+\definecolor{NavyDark}{HTML}{0A192F}      % Azul marino institucional profundo
+\definecolor{NavyBlue}{HTML}{1E3A8A}      % Azul primario
+\definecolor{SlateMid}{HTML}{334155}      % Gris pizarra medio
+\definecolor{EmeraldTeal}{HTML}{047857}   % Verde eficiencia / DLT
+\definecolor{CrimsonAlert}{HTML}{B91C1C}  % Rojo alerta / Costos / Riesgos
+\definecolor{AmberWarm}{HTML}{D97706}     % Ámbar / Cuello de botella
+\definecolor{CardBg}{HTML}{F8FAFC}        % Fondo neutro claro para cajas
+\definecolor{BlueTint}{HTML}{EFF6FF}      % Fondo azul tenue
+\definecolor{GreenTint}{HTML}{ECFDF5}     % Fondo verde tenue
+\definecolor{RedTint}{HTML}{FEF2F2}       % Fondo rojo tenue
+\definecolor{BorderGray}{HTML}{CBD5E1}    % Bordes sutiles
+\definecolor{TextDark}{HTML}{0F172A}      % Texto principal de alto contraste
+\definecolor{TextMuted}{HTML}{475569}     % Texto secundario
+
+% --- CONFIGURACIÓN DE BEAMER ---
+\setbeamercolor{normal text}{fg=TextDark,bg=white}
+\setbeamercolor{frametitle}{fg=white,bg=NavyDark}
+\setbeamercolor{structure}{fg=NavyBlue}
+\setbeamertemplate{navigation symbols}{}
+
+% Barra de título sobria, elegante y con espacio adecuado
+\setbeamertemplate{frametitle}{%
+  \nointerlineskip%
+  \begin{beamercolorbox}[wd=\paperwidth,ht=4.2ex,dp=1.4ex,leftskip=0.8cm,rightskip=0.6cm]{frametitle}%
+    {\large\bfseries\color{white}\insertframetitle}%
+  \end{beamercolorbox}%
+  \vspace{-1pt}%
+  {\color{AmberWarm}\hrule height 1.5pt}%
+  \vspace{0.15cm}%
+}
+
+% Pie de página limpio con contador exacto de 5 diapositivas
+\setbeamertemplate{footline}{%
+  \leavevmode%
+  \hbox{%
+    %\begin{beamercolorbox}[wd=.38\paperwidth,ht=2.4ex,dp=0.8ex,leftskip=0.8cm]{normal text}%
+     % \scriptsize\color{TextMuted}\textbf{Arias, Jaramillo y Marulanda} $\cdot$ Pontificia Universidad Javeriana
+    %\end{beamercolorbox}%
+    \begin{beamercolorbox}[wd=.80\paperwidth,ht=2.4ex,dp=0.8ex,leftskip=0.8cm]{normal text}%
+      \scriptsize\color{TextMuted}Monedas Estables y Comercio Internacional (OMC 2026)
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[wd=.18\paperwidth,ht=2.4ex,dp=0.8ex,rightskip=0.8cm,right]{normal text}%
+      \scriptsize\color{NavyDark}\textbf{Diapositiva \insertframenumber{} / 5}
+    \end{beamercolorbox}%
+  }%
+  \vskip2pt%
+}
+
+% Comandos auxiliares de diseño
+\newcommand{\badge}[2]{\tikz[baseline=(X.base)]\node[rounded corners=2pt,fill=#1,inner xsep=5pt,inner ysep=1.8pt](X){\scriptsize\bfseries\color{white}#2};}
+\newcommand{\badgeoutline}[2]{\tikz[baseline=(X.base)]\node[rounded corners=2pt,draw=#1,thick,fill=#1!8,inner xsep=5pt,inner ysep=1.8pt](X){\scriptsize\bfseries\color{#1}#2};}
+
+\title{Fricciones en el comercio internacional y monedas estables}
+\subtitle{Reseña crítica del Capítulo 2 del informe de la OMC (2026)}
+\author{Andrés Arias \and Catalina Jaramillo \and Rafael Marulanda}
+\institute{Pontificia Universidad Javeriana}
+\date{Seminario de Economía de Criptoactivos}
+
+\begin{document}
+
+% ==============================================================================
+% DIAPOSITIVA 1: MARCO ANALÍTICO Y TESIS CENTRAL
+% ==============================================================================
+\begin{frame}[plain]
+  \vspace{0.05cm}
+  % Header Banner Ejecutivo Integrado (Siempre visible)
+  \begin{tikzpicture}
+    \node[fill=NavyDark, rounded corners=3pt, inner sep=6pt, text width=\linewidth-12pt] {
+      {\large\bfseries\color{white}Fricciones en el Comercio Internacional y las Monedas Estables}\hfill\badge{AmberWarm}{Capítulo 2 $\cdot$ OMC}\\[0.05cm]
+      {\scriptsize\color{BorderGray}Andrés Arias $\cdot$ Catalina Jaramillo $\cdot$ Rafael Marulanda (PUJ)}
+    };
+  \end{tikzpicture}
+
+  \vspace{0.12cm}
+
+  % Tesis y Cuestionamiento Central en dos paneles
+  \begin{columns}[T]
+    % Columna Izquierda: El Problema Económico
+    \column{0.49\textwidth}
+      \uncover<1->{
+        \begin{tikzpicture}
+          \node[draw=NavyBlue, line width=0.8pt, fill=BlueTint, rounded corners=3pt, inner sep=5pt, text width=\linewidth-12pt, align=left] {
+            {\small\bfseries\color{NavyBlue}1. Problema: Fricciones Tradicionales}\par\vspace{0.06cm}
+            {\scriptsize
+            $\bullet$ Pagos transfronterizos convencionales lentos ($T+2$ a $T+5$), opacos y costosos por la red de corresponsalía.\par\vspace{0.04cm}
+            $\bullet$ El proceso de \emph{de-risking} bancario post-2008 redujo corresponsales y encareció transferencias en mercados emergentes.\par\vspace{0.04cm}
+            $\bullet$ \textbf{Promesa de las stablecoins:} Liquidación atómica 24/7/365, desintermediación P2P y contratos inteligentes.}
+          };
+        \end{tikzpicture}
+      }
+
+    % Columna Derecha: La Bifurcación Analítica
+    \column{0.49\textwidth}
+      \uncover<2->{
+        \begin{tikzpicture}
+          \node[draw=CrimsonAlert, line width=0.8pt, fill=RedTint, rounded corners=3pt, inner sep=5pt, text width=\linewidth-12pt, align=left] {
+            {\small\bfseries\color{CrimsonAlert}2. Tesis: Dinero Base vs. Crédito}\par\vspace{0.06cm}
+            {\scriptsize
+            $\bullet$ Las stablecoins son \textbf{dinero base privado ($M_0$)}, que exige 100\% de prefondeo (\emph{cash-in-advance}).\par\vspace{0.04cm}
+            $\bullet$ El comercio global depende de \textbf{creación crediticia bancaria ($M_2$)} y mitigación jurídica de riesgos (UCP 600).}
+          };
+        \end{tikzpicture}
+      }
+  \end{columns}
+
+  \vspace{0.12cm}
+
+  \uncover<3->{
+    \centering
+    \begin{tikzpicture}
+      \node[fill=AmberWarm!15, draw=AmberWarm, rounded corners=2pt, inner xsep=8pt, inner ysep=2pt] {
+        \scriptsize\bfseries\color{NavyDark}Relación Económica: Complementariedad de Canales, pero NO Substitución Institucional
+      };
+    \end{tikzpicture}
+    \vspace{0.06cm}
+
+    \begin{columns}[c]
+      \column{0.48\textwidth}
+        \begin{tikzpicture}
+          \node[draw=EmeraldTeal, thick, fill=GreenTint, rounded corners=3pt, text width=\linewidth-12pt, align=left, inner sep=4.5pt] {
+            \textbf{\color{EmeraldTeal}\scriptsize Canal de Liquidación DLT (Monedas Estables)}\\[0.02cm]
+            {\tiny
+            $\bullet$ Transferencia billetera a billetera casi atómica (segundos).\par\vspace{0.02cm}
+            $\bullet$ Mitiga capital de trabajo ocioso en tránsito interbancario.\par\vspace{0.02cm}
+            $\bullet$ \textbf{Límite:} Solo transfiere $M_0$ preexistente sin crear liquidez.}
+          };
+        \end{tikzpicture}
+      \column{0.03\textwidth}
+        \centering\color{AmberWarm}\normalsize$\boldsymbol{\longleftrightarrow}$
+      \column{0.48\textwidth}
+        \begin{tikzpicture}
+          \node[draw=NavyBlue, thick, fill=BlueTint, rounded corners=3pt, text width=\linewidth-12pt, align=left, inner sep=4.5pt] {
+            \textbf{\color{NavyBlue}\scriptsize Financiamiento Comercial (Trade Finance)}\\[0.02cm]
+            {\tiny
+            $\bullet$ Creación endógena de crédito pre/post-embarque ($M_2$).\par\vspace{0.02cm}
+            $\bullet$ Cartas de crédito UCP 600 y colateral sobre carga física.\par\vspace{0.02cm}
+            $\bullet$ \textbf{Límite:} Procesamiento de documentos.}
+          };
+        \end{tikzpicture}
+    \end{columns}
+  }
+
+  \vfill
+  \tiny\color{TextMuted}Fuente: \textit{Stablecoins and world trade}, Cap. 2; Beck et al. (2025); Adams et al. (2023).
+\end{frame}
+
+% ==============================================================================
+% DIAPOSITIVA 2: RIELES DLT VS. BANCA DE CORRESPONSALÍA
+% ==============================================================================
+\begin{frame}{Fricciones en Pagos: Canales DLT vs. Banca de Corresponsalía}
+  \vspace{-0.1cm}
+  \begin{columns}[T]
+    % Columna 1: Comparativa Operativa y Costos
+    \column{0.50\textwidth}
+      \uncover<1->{
+        \textbf{\color{NavyDark}\footnotesize Comparativa Estructural de Infraestructuras}\\[0.1cm]
+        \centering
+        \scriptsize
+        \renewcommand{\arraystretch}{1.12}
+        \begin{tabularx}{\linewidth}{p{2.0cm} >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X}
+          \toprule
+          \textbf{Dimensión} & \textbf{Corresponsalía} & \textbf{Stablecoins (DLT)} \\
+          \midrule
+          \textbf{Liquidación} & $T+2$ a $T+5$ días hábiles & Segundos a minutos \\
+          \textbf{Disponibilidad} & Horario bancario local & 24/7/365 continuo \\
+          \textbf{Arquitectura} & Cuentas \emph{nostro/vostro} & Billetera a billetera (P2P) \\
+          \textbf{Costo (\$500)} & 4\%--6\% & 1\%--3\% \\
+          \textbf{Corredor US-MX} & Promedio $>6\%$ & $<1\%$ (Dolev, 2025) \\
+          \textbf{Cumplimiento} & KYC/AML manual & KYC/AML + \emph{Travel Rule} \\
+          \bottomrule
+        \end{tabularx}
+      }
+      \vspace{0.18cm}
+      \uncover<2->{
+        \begin{tikzpicture}
+          \node[draw=BorderGray, fill=BlueTint, rounded corners=2pt, inner sep=4pt, text width=\linewidth-10pt, align=left] {
+            \tiny\textbf{\color{NavyBlue}Giro B2B Global:} Visa (2025) liquida balances USDC en redes públicas. Pagos B2B crecieron \textbf{+733\%} en 2025 (\$390.000 millones anuales).
+          };
+        \end{tikzpicture}
+      }
+
+    % Columna 2: El Cuello de Botella de los On/Off Ramps
+    \column{0.48\textwidth}
+      \uncover<3->{
+        \textbf{\color{CrimsonAlert}\footnotesize El Cuello de Botella: Pasarelas Fiduciarias}\\[0.1cm]
+        \scriptsize
+        Aunque la transferencia sobre la cadena cuesta centavos ($<0.05\%$), las empresas operan y tributan en moneda fiduciaria nacional:
+        \vspace{0.05cm}
+        \begin{equation*}
+          C_{\text{total}} = \underbrace{c_{\text{on-ramp}}}_{\text{Pasarela local}} + \underbrace{c_{\text{gas/DLT}}}_{\approx 0.05\%} + \underbrace{c_{\text{off-ramp}}}_{\text{Retiro local}} + \underbrace{\text{Spread}_{\text{FX}}}_{\text{Diferencial cambiario}}
+        \end{equation*}
+
+        % Gráfico Reconstruido PGFPlots: Composición de Costos según Di Iorio et al. (2026)
+        \begin{tikzpicture}
+          \begin{axis}[
+            xbar,
+            width=6.5cm,
+            height=3.1cm,
+            xmin=0, xmax=10,
+            xlabel={Costo Total Estimado (\% del monto transferido)},
+            xlabel style={font=\tiny, at={(0.5,-0.22)}},
+            symbolic y coords={Corredor Ilíquido, Corredor Líquido, Banca Tradicional},
+            ytick=data,
+            yticklabel style={font=\tiny},
+            nodes near coords,
+            nodes near coords style={font=\tiny\bfseries},
+            every node near coord/.append style={xshift=2pt},
+            bar width=6.5pt,
+            axis line style={BorderGray},
+            xmajorgrids=true,
+            grid style={dashed, gray!30}
+          ]
+            \addplot[fill=CrimsonAlert!85, draw=CrimsonAlert] coordinates {
+              (5.5,Banca Tradicional)
+              (1.2,Corredor Líquido)
+              (8.9,Corredor Ilíquido)
+            };
+          \end{axis}
+        \end{tikzpicture}
+      }
+
+      \vspace{-0.1cm}
+      \uncover<4->{
+        \begin{tikzpicture}
+          \node[draw=BorderGray, fill=RedTint, rounded corners=2pt, inner sep=4pt, text width=\linewidth-10pt, align=left] {
+            \tiny\textbf{\color{CrimsonAlert}Evidencia empírica (Di Iorio et al., 2026):} El costo total oscila entre \textbf{0.3\% y 8.9\%}. En monedas de baja liquidez, las pasarelas absorben toda la ganancia computacional de la DLT.
+          };
+        \end{tikzpicture}
+      }
+  \end{columns}
+
+  \vfill
+  \tiny\color{TextMuted}Fuentes: Di Iorio et al. (2026); Adams et al. (2023); Dolev (2025); FSB (2020); Visa (2025).
+\end{frame}
+
+% ==============================================================================
+% DIAPOSITIVA 3: LA FRONTERA CON EL FINANCIAMIENTO COMERCIAL
+% ==============================================================================
+\begin{frame}{¿Por qué las Stablecoins No Crean Crédito?}
+  \vspace{-0.12cm}
+  \begin{columns}[c]
+    \column{0.68\textwidth}
+      \scriptsize\textbf{\color{NavyDark}Matriz de Capacidades Institucionales (OMC, Tabla 2)}
+    \column{0.30\textwidth}
+      \raggedleft\badgeoutline{NavyBlue}{Trade Finance: \$9--11 Trillones (BIS)}
+  \end{columns}
+
+  \vspace{0.1cm}
+  % Tabla 2 Reconstruida sin cortes de palabra incómodos
+  \centering
+  \scriptsize
+  \renewcommand{\arraystretch}{0.98}
+  \begin{tabularx}{\textwidth}{>{\bfseries\color{NavyDark}}p{2.6cm} >{\raggedright\arraybackslash}p{3.5cm} >{\raggedright\arraybackslash}p{3.5cm} >{\raggedright\arraybackslash}X}
+    \toprule
+    \rowcolor{BlueTint}
+    \textbf{Función Comercial} & \textbf{Mecanismo Bancario} & \textbf{Aporte Stablecoins} & \textbf{\color{CrimsonAlert}Limitación} \\
+    \midrule
+    1. Pago y Liquidación & Transferencia interbancaria sujeta a condiciones. & Liquidación atómica 24/7 y ejecución programable. & Dependencia de pasarelas fiat (\emph{on/off-ramps}). \\
+    \rowcolor{CardBg}
+    2. Provisión de Crédito & Financiación de capital de trabajo ($M_2$). & \textbf{NULO}. Solo transfiere fondos preexistentes ($M_0$). & \textbf{No crea crédito}; exige 100\% prefondeo (\emph{cash-in-advance}). \\
+    3. Mitigación de Riesgo & Cartas de crédito y garantías autónomas (UCP 600). & Smart contracts automatizan condiciones \emph{if-then}. & No sustituyen la solvencia bancaria. \\
+    \rowcolor{CardBg}
+    4. Garantía sobre Carga & Títulos valores (Bill of Lading) con posesión física. & Integración conceptual con registros digitales / IoT. & Falta de reconocimiento legal pleno de títulos electrónicos. \\
+    5. Liquidez Operativa & Descuento de facturas (\emph{factoring}) y líneas de crédito. & Liberación inmediata de fondos post-liquidación. & No financia la etapa de manufactura o embarque previo. \\
+    \bottomrule
+  \end{tabularx}
+
+  \vspace{0.12cm}
+  \begin{columns}[T]
+    \column{0.49\textwidth}
+      \uncover<2->{
+        \begin{tikzpicture}
+          \node[draw=CrimsonAlert, line width=0.7pt, fill=RedTint, rounded corners=2pt, inner sep=3.5pt, text width=\linewidth-10pt, align=left] {
+            \tiny\textbf{\color{CrimsonAlert}Límite del Código (Smart Contracts):} No certifica calidad física en puerto ni tiene jurisdicción legal sobre mercancías defectuosas.
+          };
+        \end{tikzpicture}
+      }
+    \column{0.49\textwidth}
+      \uncover<3->{
+        \begin{tikzpicture}
+          \node[draw=EmeraldTeal, line width=0.7pt, fill=GreenTint, rounded corners=2pt, inner sep=3.5pt, text width=\linewidth-10pt, align=left] {
+            \tiny\textbf{\color{EmeraldTeal}Condición Habilitante (Derecho Mercantil):} Las garantías UCP 600 exigen reconocimiento probatorio pleno de títulos digitales.
+          };
+        \end{tikzpicture}
+      }
+  \end{columns}
+
+  \vfill
+  \tiny\color{TextMuted}Fuente: Reconstrucción basada en OMC (2026), \textit{Stablecoins and world trade}, Tabla 2, p. 22; ICC (2022); BIS (2014).
+\end{frame}
+
+% ==============================================================================
+% DIAPOSITIVA 4: BIENES VS. SERVICIOS Y LA BRECHA DE LAS MIPYMES
+% ==============================================================================
+\begin{frame}{Divergencia Sectorial y Brecha Financiera en MIPYMES}
+  \vspace{-0.1cm}
+  \begin{columns}[T]
+    % Columna Izquierda: Bienes vs Servicios
+    \column{0.49\textwidth}
+      \textbf{\color{NavyDark}\footnotesize La Bifurcación Sectorial}\\[0.1cm]
+      
+      % Diagrama Conceptual TikZ de Sectores con Overlays
+      \begin{tikzpicture}[x=1cm, y=1cm, font=\scriptsize]
+        % Bounding box fija para evitar saltos en la animación
+        \path (-3.1, -1.5) rectangle (3.1, 1.85);
+
+        \node<1->[draw=EmeraldTeal, thick, fill=GreenTint, rounded corners=3pt, text width=6.2cm, inner sep=4pt] (serv) at (0, 1.15) {
+          \textbf{\color{EmeraldTeal}Servicios Prestados Digitalmente (SaaS, Software)}
+          \begin{itemize}\setlength{\itemsep}{0pt}\tiny
+            \item Sin flete marítimo ni colateral físico que pignorar.
+            \item Fricción de pago $\rightarrow$ \textbf{Adopción inmediata}.
+            \item Pagos B2B crecieron \textbf{+733\%} entre 2024 y 2025.
+          \end{itemize}
+        };
+
+        \node<2->[draw=CrimsonAlert, thick, fill=RedTint, rounded corners=3pt, text width=6.2cm, inner sep=4pt] (bienes) at (0, -0.65) {
+          \textbf{\color{CrimsonAlert}Comercio de Mercancías Físicas (Manufactura, Agro)}
+          \begin{itemize}\setlength{\itemsep}{0pt}\tiny
+            \item Desfase temporal de transporte (30--60 días en tránsito).
+            \item Requiere crédito de pre-embarque y capital de trabajo.
+            \item Las stablecoins no sustituyen el financiamiento requerido.
+          \end{itemize}
+        };
+
+        \draw<2->[-{Latex[length=2mm]}, thick, AmberWarm] (serv.south) -- (bienes.north) node[midway, right, font=\tiny\bfseries, text=NavyDark] {Divergencia};
+      \end{tikzpicture}
+
+      \vspace{0.08cm}
+      \uncover<3->{
+        \begin{tikzpicture}
+          \node[draw=BorderGray, fill=BlueTint, rounded corners=2pt, inner sep=4pt, text width=\linewidth-10pt, align=left] {
+            \tiny\textbf{\color{NavyBlue}Paradoja de Inclusión:} Las stablecoins reducen el costo del pago, pero su exigencia de prefondeo total excluye a MIPYMES sin liquidez de capital de trabajo.
+          };
+        \end{tikzpicture}
+      }
+
+    % Columna Derecha: Brechas Empíricas y Desafío Documental
+    \column{0.49\textwidth}
+      \uncover<3->{
+        \textbf{\color{NavyDark}\footnotesize Brecha Financiera y Fricción Documental}\\[0.1cm]
+
+        % Gráfica TikZ de Barras Horizontales con datos empíricos del paper
+        \begin{tikzpicture}
+          \begin{axis}[
+            xbar,
+            width=6.5cm,
+            height=3.1cm,
+            xmin=0, xmax=100,
+            xlabel={Porcentaje (\%)},
+            xlabel style={font=\tiny, at={(0.5,-0.22)}},
+            symbolic y coords={Acceso PYME Mexico, Cobertura Trade Fin., Rechazo Doc. UCP},
+            ytick=data,
+            yticklabel style={font=\tiny},
+            nodes near coords,
+            nodes near coords style={font=\tiny\bfseries},
+            every node near coord/.append style={xshift=2pt},
+            bar width=6.5pt,
+            axis line style={BorderGray},
+            xmajorgrids=true,
+            grid style={dashed, gray!30}
+          ]
+            \addplot[fill=CrimsonAlert!85, draw=CrimsonAlert] coordinates {
+              (72.5,Rechazo Doc. UCP)
+              (11.0,Cobertura Trade Fin.)
+              (25.0,Acceso PYME Mexico)
+            };
+          \end{axis}
+        \end{tikzpicture}
+      }
+
+      \vspace{-0.15cm}
+      \uncover<4->{
+        \begin{itemize}\setlength{\itemsep}{1.5pt}\tiny
+          \item \textbf{Rechazo Documental UCP 600:} Entre el \textbf{65\% y 80\%} de documentos son rechazados en 1ra presentación por discrepancias formales (ICC, 2022).
+          \item \textbf{Brecha en Mercados Emergentes:} Solo el \textbf{2\% al 20\%} de flujos en África Occidental, Mekong y Centroamérica tiene soporte bancario formal (OMC-IFC 2022--2025).
+          \item \textbf{Dependencia de Autofinanciamiento:} En México, el 75\% de firmas exportadoras carece de crédito formal y depende de \emph{cash-in-advance} o cuenta abierta (Beck et al., 2025).
+        \end{itemize}
+      }
+  \end{columns}
+
+  \vfill
+  \tiny\color{TextMuted}Fuentes: OMC-IFC (2022, 2023, 2025); Beck et al. (2025); ICC (2022); OMC (2026), Cap. 2.
+\end{frame}
+
+% ==============================================================================
+% DIAPOSITIVA 5: MARCO INSTITUCIONAL, RIESGOS MACRO Y CONCLUSIÓN
+% ==============================================================================
+\begin{frame}{Marco Institucional, Riesgos Macroeconómicos y Síntesis}
+  \vspace{-0.1cm}
+  % Tres Pilares Estructurados de Conclusión
+  \begin{columns}[T]
+    % Pilar 1: Marco Jurídico Habilitante
+    \column{0.32\textwidth}
+      \uncover<1->{
+        \begin{tikzpicture}
+          \node[draw=NavyBlue, line width=0.8pt, fill=BlueTint, rounded corners=3pt, inner sep=5pt, text width=\linewidth-12pt, align=left] {
+            {\scriptsize\bfseries\color{NavyBlue}1. Jurídico}\\[0.02cm]
+            {\tiny\color{TextMuted}\textit{De datos digitales a títulos}}\par\vspace{0.08cm}
+            {\tiny
+            $\bullet$ El smart contract no otorga posesión legal sobre mercancías físicas en tránsito.\par\vspace{0.05cm}
+            $\bullet$ Requiere leyes habilitantes: \textbf{UK ETDA (2023)} y ley modelo \textbf{UNCITRAL MLETR (2017)}.\par\vspace{0.05cm}
+            $\bullet$ Equiparan el \emph{electronic bill of lading} al título físico para efectos prendarios.}
+          };
+        \end{tikzpicture}
+      }
+
+    % Pilar 2: Riesgo Macroeconómico
+    \column{0.32\textwidth}
+      \uncover<2->{
+        \begin{tikzpicture}
+          \node[draw=CrimsonAlert, line width=0.8pt, fill=RedTint, rounded corners=3pt, inner sep=5pt, text width=\linewidth-12pt, align=left] {
+            {\scriptsize\bfseries\color{CrimsonAlert}2. Riesgo Macro}\\[0.02cm]
+            {\tiny\color{TextMuted}\textit{Dolarización en el Sur Global}}\par\vspace{0.08cm}
+            {\tiny
+            $\bullet$ Hegemonía del USD (USDT/USDC): genera \textbf{sustitución monetaria}.\par\vspace{0.05cm}
+            $\bullet$ Pérdida de señoreaje.\par\vspace{0.05cm}
+            $\bullet$ Mayor vulnerabilidad ante fugas súbitas de capital vía canales DLT (FSB, 2024; FMI, 2024).}
+          };
+        \end{tikzpicture}
+      }
+
+    % Pilar 3: Síntesis del Seminario
+    \column{0.32\textwidth}
+      \uncover<3->{
+        \begin{tikzpicture}
+          \node[draw=EmeraldTeal, line width=0.8pt, fill=GreenTint, rounded corners=3pt, inner sep=5pt, text width=\linewidth-12pt, align=left] {
+            {\scriptsize\bfseries\color{EmeraldTeal}3. Síntesis}\\[0.02cm]
+            {\tiny\color{TextMuted}\textit{Complementariedad e Innovación}}\par\vspace{0.08cm}
+            {\tiny
+            $\bullet$ \textbf{Conclusión:} Las stablecoins son un canal de liquidación ($M_0$), no un sustituto del crédito ($M_2$).\par\vspace{0.05cm}
+            $\bullet$ Su nicho real inmediato: servicios digitales, remesas B2B y tesorería corporativa.\par\vspace{0.05cm}
+            $\bullet$ La eficiencia algorítmica no reemplaza la solidez de las instituciones.}
+          };
+        \end{tikzpicture}
+      }
+  \end{columns}
+
+  \vspace{0.25cm}
+
+  % Conclusión Destacada del Seminario de Graduados
+  \uncover<4->{
+    \begin{tikzpicture}
+      \node[draw=BorderGray, fill=BlueTint, rounded corners=3pt, inner sep=6pt, text width=\linewidth-14pt, align=center] {
+        {\scriptsize\bfseries\color{NavyDark}Conclusión:}\\[0.05cm]
+        {\scriptsize\color{TextDark}El valor de las monedas estables en el comercio está en forzar la interoperabilidad entre sistemas de pago instantáneos y los contratos legales de financiamiento comercial.}
+      };
+    \end{tikzpicture}
+  }
+
+  \vfill
+  \tiny\color{TextMuted}Fuentes: UNCITRAL (2017); UK ETDA (2023); FSB (2023, 2024); FMI (2024); Deutsche Bank (2026); OMC (2026).
+\end{frame}
+
+\end{document}

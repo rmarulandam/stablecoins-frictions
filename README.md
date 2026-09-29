@@ -22,6 +22,9 @@ The reviewed chapter analyzes how fiat-backed stablecoins (predominantly USD-den
 | :--- | :--- |
 | [`resena_wto_stablecoins.tex`](file:///d:/repos/master-tesis-economy/Bitcoin-economics/06_stablecoins/resena_wto_stablecoins.tex) | Full academic critical review article in LaTeX format. |
 | [`resena_wto_stablecoins.pdf`](file:///d:/repos/master-tesis-economy/Bitcoin-economics/06_stablecoins/resena_wto_stablecoins.pdf) | Compiled PDF of the academic critical review. |
+| [`presentacion_wto_stablecoins.tex`](file:///d:/repos/master-tesis-economy/Bitcoin-economics/06_stablecoins/presentacion_wto_stablecoins.tex) | 5-slide LaTeX Beamer presentation (16:9) for seminar defense. |
+| [`presentacion_wto_stablecoins.pdf`](file:///d:/repos/master-tesis-economy/Bitcoin-economics/06_stablecoins/presentacion_wto_stablecoins.pdf) | Compiled PDF of the 5-slide seminar presentation. |
+| [`speaker_notes.md`](file:///d:/repos/master-tesis-economy/Bitcoin-economics/06_stablecoins/speaker_notes.md) | Structured speaker notes with target timings and transition sentences (~6:40 min). |
 | [`stablecoins_wto_2.pdf`](file:///d:/repos/master-tesis-economy/Bitcoin-economics/06_stablecoins/stablecoins_wto_2.pdf) | Source Chapter 2 extracted from the official WTO report (2026). |
 | [`1789575751382.pdf`](file:///d:/repos/master-tesis-economy/Bitcoin-economics/06_stablecoins/1789575751382.pdf) | Full 50-page WTO Flagship Report (*Stablecoins and world trade: Emerging role, opportunities and challenges*). |
 | [`.gitignore`](file:///d:/repos/master-tesis-economy/Bitcoin-economics/06_stablecoins/.gitignore) | Local Git ignore rules for LaTeX auxiliary files. |
